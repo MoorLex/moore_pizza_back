@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::namespace('api')->group(function () {
+Route::namespace('Api')->group(function () {
     Route::get('pizzas/popular', 'PizzaController@popular');
     Route::apiResource('pizzas', 'PizzaController')->only([
         'index', 'show'
