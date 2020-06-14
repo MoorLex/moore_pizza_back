@@ -20,6 +20,7 @@ use App\Http\Transformers\PizzaSmallResource;
  * @property string $phone
  * @property string $email
  * @property string $notes
+ * @property string $token
  * @property array $products
  * @property Carbon|null $created_at
  *
@@ -31,6 +32,7 @@ class Order extends Model
     use SoftDeletes;
 
     protected $fillable = [
+        'token',
         'price',
         'first_name',
         'last_name',

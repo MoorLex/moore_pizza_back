@@ -24,6 +24,7 @@ class CreateOrdersTable extends Migration
             $table->string('address');
             $table->string('phone');
             $table->string('email');
+            $table->string('token');
             $table->string('notes')->nullable();
             $table->timestamps();
             $table->softDeletes();

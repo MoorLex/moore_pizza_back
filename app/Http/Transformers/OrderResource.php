@@ -5,6 +5,7 @@ namespace App\Http\Transformers;
 
 use App\Models\Order;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Str;
 
 /**
  * @OA\Schema(schema="Order",
@@ -111,7 +112,14 @@ class OrderResource extends JsonResource
              *     type="string"
              * )
              */
-            'created_at' => $this->attributesToArray()['created_at'] ?? ''
+            'created_at' => $this->attributesToArray()['created_at'] ?? '',
+            /**
+             * @OA\Property(property="created_at",
+             *     description="Created Date",
+             *     type="string"
+             * )
+             */
+            'token' => $this->token
         ];
     }
 }

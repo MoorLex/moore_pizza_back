@@ -51,19 +51,17 @@ class OrderController extends ApiController
     }
 
     /**
-     * @OA\Get(path="/orders/{id}",
+     * @OA\Get(path="/orders/{token}",
      *     tags={"Order"},
      *     summary="Order info",
      *     description="",
      *     operationId="getOrder",
-     *     @OA\Parameter(name="id",
+     *     @OA\Parameter(name="token",
      *         in="path",
-     *         description="Order id",
+     *         description="Order token",
      *         required=true,
-     *         example=1,
-     *         @OA\Schema(type="integer",
-     *             format="int64"
-     *         )
+     *         example="66JNGl-gI5Xcl-nZbHDW",
+     *         @OA\Schema(type="string")
      *     ),
      *     @OA\Response(response=200,
      *         description="success",
@@ -76,12 +74,12 @@ class OrderController extends ApiController
      *         )
      *     )
      * )
-     * @param int $id
+     * @param string $token
      * @return JsonResource
      */
-    public function show(int $id): JsonResource
+    public function show(string $token): JsonResource
     {
-        $model = $this->repository->findOrFail($id);
+        $model = $this->repository->findOrFail($token);
         return new $this->transformerClass($model);
     }
 }
